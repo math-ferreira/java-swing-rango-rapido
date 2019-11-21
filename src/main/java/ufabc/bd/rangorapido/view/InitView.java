@@ -13,7 +13,6 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Button;
 
 public class InitView {
 
@@ -72,8 +71,10 @@ public class InitView {
 		JButton btnCli = new JButton("Cliente");
 		btnCli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteInitView clienteInit = new ClienteInitView();
-				clienteInit.setVisible(true);
+				//ClienteInitView clienteInit = new ClienteInitView();
+				//clienteInit.setVisible(true);
+				ClienteInitView teste = new ClienteInitView();
+				teste.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
