@@ -6,7 +6,10 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import ufabc.bd.rangorapido.view.cliente.ClienteInitView;
+
+import ufabc.bd.rangorapido.DAO.ConnectBD;
+import ufabc.bd.rangorapido.view.cliente.ClienteLoginView;
+import ufabc.bd.rangorapido.view.restaurante.RestauranteLoginView;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -16,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class InitView {
 
-	private JFrame frame;
+	public JFrame frmInicio;
 
 	/**
 	 * Launch the application.
@@ -26,7 +29,7 @@ public class InitView {
 			public void run() {
 				try {
 					InitView window = new InitView();
-					window.frame.setVisible(true);
+					window.frmInicio.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,46 +47,52 @@ public class InitView {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 940, 502);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private void initialize() {		
+		frmInicio = new JFrame();
+		frmInicio.setTitle("Inicio");
+		frmInicio.getContentPane().setBackground(Color.WHITE);
+		frmInicio.setBounds(100, 100, 940, 502);
+		frmInicio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.setUndecorated(true);
-		frame.getContentPane().setLayout(null);
+		frmInicio.getContentPane().setLayout(null);
 		
 		JLabel lblSejamBemVindos = new JLabel("Sejam Bem vindos! Rango Rapido");
 		lblSejamBemVindos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSejamBemVindos.setFont(new Font("Century Gothic", Font.BOLD, 25));
-		lblSejamBemVindos.setBounds(309, 38, 537, 108);
-		frame.getContentPane().add(lblSejamBemVindos);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(InitView.class.getResource("/resource/Capturar.PNG")));
-		lblNewLabel.setBounds(319, 119, 441, 258);
-		frame.getContentPane().add(lblNewLabel);
+		lblSejamBemVindos.setBounds(313, 11, 537, 108);
+		frmInicio.getContentPane().add(lblSejamBemVindos);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(InitView.class.getResource("/resource/9b077e87a3321615c5f45ae2ec96cf14-gpMedium.jpeg")));
+		lblNewLabel_1.setIcon(new ImageIcon(InitView.class.getResource("/resource/rango.jpeg")));
 		lblNewLabel_1.setBounds(10, -102, 289, 672);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmInicio.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnCli = new JButton("Cliente");
-		btnCli.addActionListener(new ActionListener() {
+		JButton btnCliente = new JButton("Cliente");
+		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ClienteInitView clienteInit = new ClienteInitView();
-				//clienteInit.setVisible(true);
-				ClienteInitView teste = new ClienteInitView();
-				teste.setVisible(true);
-				frame.setVisible(false);
+				ClienteLoginView clienteLogin = new ClienteLoginView();
+				clienteLogin.setVisible(true);
+				frmInicio.setVisible(false);
 			}
 		});
-		btnCli.setBounds(457, 413, 123, 23);
-		frame.getContentPane().add(btnCli);
+		btnCliente.setBounds(457, 413, 123, 23);
+		frmInicio.getContentPane().add(btnCliente);
 		
-		JButton btnRest = new JButton("Restaurante");
-		btnRest.setBounds(590, 412, 130, 23);
-		frame.getContentPane().add(btnRest);
+		JButton btnRestaurante = new JButton("Restaurante");
+		btnRestaurante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RestauranteLoginView restauranteLogin = new RestauranteLoginView();
+				restauranteLogin.setVisible(true);
+				frmInicio.setVisible(false);
+			}
+		});
+		btnRestaurante.setBounds(590, 412, 130, 23);
+		frmInicio.getContentPane().add(btnRestaurante);
+		
+		JLabel lblImg = new JLabel("img");
+		lblImg.setBounds(382, 94, 408, 303);
+		frmInicio.getContentPane().add(lblImg);
+		lblImg.setIcon(new ImageIcon(InitView.class.getResource("/resource/logo.png")));
 
 	}
 }

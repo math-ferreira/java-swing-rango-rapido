@@ -1,4 +1,4 @@
-package ufabc.bd.rangorapidov2;
+package ufabc.bd.rangorapido;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
